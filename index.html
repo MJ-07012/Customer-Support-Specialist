@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Calm Professional -->
     <!-- Application Structure Plan: A single-page application with top navigation for smooth scrolling to key sections: Summary, Experience, Skills, and a direct Role Alignment comparison. The Experience section uses an interactive accordion to prevent information overload. The core of the design is the 'Alignment' section, which uses a two-column layout to explicitly map Marlon's skills from the revised resume to the Oddball job requirements. This structure was chosen to guide the hiring manager directly to the most relevant information and demonstrate a perfect fit, moving beyond a static resume format. -->
-    <!-- Visualization & Content Choices: Summary -> Inform -> Clean Text Block -> Clear initial pitch. Experience -> Organize -> JS Accordion -> Manages content density. Skills -> Inform -> Radar Chart (Chart.js) -> Visually represents proficiency in key required competencies (Troubleshooting, Documentation, etc.) for quick assessment. Role Alignment -> Compare -> Two-Column HTML/Tailwind Grid -> Provides a direct, scannable comparison of job needs vs. candidate skills. The radar chart was chosen over a simple list to provide a memorable visual summary of qualifications. -->
+    <!-- Visualization & Content Choices: Summary -> Inform -> Clean Text Block -> Clear initial pitch. Experience -> Organize -> JS Accordion -> Manages content density. Skills -> Inform -> Horizontal Bar Chart (Chart.js) -> Visually represents proficiency in years for key required competencies for quick, clear assessment. Role Alignment -> Compare -> Two-Column HTML/Tailwind Grid -> Provides a direct, scannable comparison of job needs vs. candidate skills. The bar chart was chosen for its clarity in representing time-based proficiency. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
@@ -21,9 +21,9 @@
         .chart-container {
             position: relative;
             margin: auto;
-            height: 40vh;
+            height: 50vh;
             width: 100%;
-            max-width: 500px;
+            max-width: 700px;
             max-height: 500px;
         }
         .nav-link {
@@ -247,49 +247,57 @@
 
             const ctx = document.getElementById('skillsChart').getContext('2d');
             const skillsChart = new Chart(ctx, {
-                type: 'radar',
+                type: 'bar',
                 data: {
                     labels: [
                         'Troubleshooting', 
-                        'Documentation (Jira/Confluence)', 
-                        'User-Centric Support', 
+                        'User-Centric Support',
                         'Agile Collaboration', 
-                        'Authentication Systems'
+                        'Authentication Systems',
+                        'Documentation (Jira/Confluence)', 
                     ],
                     datasets: [{
-                        label: 'Proficiency',
-                        data: [5, 5, 4, 4, 4], 
-                        backgroundColor: 'rgba(13, 148, 136, 0.2)', // teal-600 with transparency
-                        borderColor: 'rgb(13, 148, 136)', // teal-600
-                        borderWidth: 2,
-                        pointBackgroundColor: 'rgb(13, 148, 136)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgb(13, 148, 136)'
+                        label: 'Years of Experience',
+                        data: [11, 11, 5, 6, 6], 
+                        backgroundColor: 'rgba(13, 148, 136, 0.7)',
+                        borderColor: 'rgb(13, 148, 136)',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        hoverBackgroundColor: 'rgba(15, 118, 110, 0.9)'
                     }]
                 },
                 options: {
+                    indexAxis: 'y',
                     maintainAspectRatio: false,
                     scales: {
-                        r: {
-                            angleLines: {
-                                color: 'rgba(0, 0, 0, 0.1)'
-                            },
+                        x: {
+                            beginAtZero: true,
                             grid: {
-                                color: 'rgba(0, 0, 0, 0.1)'
-                            },
-                            pointLabels: {
-                                font: {
-                                    size: 14,
-                                },
-                                color: '#334155' // slate-700
+                                display: true,
+                                color: 'rgba(0, 0, 0, 0.05)'
                             },
                             ticks: {
-                                backdropColor: 'rgba(248, 250, 252, 0.75)', // slate-50 with transparency
                                 color: '#64748b', // slate-500
-                                stepSize: 1,
-                                beginAtZero: true,
-                                max: 5
+                            },
+                            title: {
+                                display: true,
+                                text: 'Years of Experience',
+                                color: '#334155', // slate-700
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        y: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#334155', // slate-700
+                                font: {
+                                    size: 14
+                                }
                             }
                         }
                     },
@@ -299,14 +307,18 @@
                         },
                         tooltip: {
                             enabled: true,
+                            backgroundColor: '#334155',
+                            titleFont: {
+                                weight: 'bold'
+                            },
                             callbacks: {
                                 label: function(context) {
                                     let label = context.dataset.label || '';
                                     if (label) {
                                         label += ': ';
                                     }
-                                    if (context.parsed.r !== null) {
-                                        label += context.parsed.r + ' / 5';
+                                    if (context.parsed.x !== null) {
+                                        label += context.parsed.x + ' years';
                                     }
                                     return label;
                                 }
