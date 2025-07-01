@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Calm Professional -->
-    <!-- Application Structure Plan: A single-page application with top navigation for smooth scrolling to key sections: Summary, Experience, Skills, and a direct Role Alignment comparison. The Experience section uses an interactive accordion to prevent information overload. The core of the design is the 'Alignment' section, which uses a two-column layout to explicitly map Marlon's skills from the revised resume to the Oddball job requirements. This structure was chosen to guide the hiring manager directly to the most relevant information and demonstrate a perfect fit, moving beyond a static resume format. -->
-    <!-- Visualization & Content Choices: Summary -> Inform -> Clean Text Block -> Clear initial pitch. Experience -> Organize -> JS Accordion -> Manages content density. Skills -> Inform -> Horizontal Bar Chart (Chart.js) -> Visually represents proficiency in years for key required competencies for quick, clear assessment. Role Alignment -> Compare -> Two-Column HTML/Tailwind Grid -> Provides a direct, scannable comparison of job needs vs. candidate skills. The bar chart was chosen for its clarity in representing time-based proficiency. -->
+    <!-- Application Structure Plan: A single-page application with top navigation for smooth scrolling to key sections: Summary, Experience, Skills, Certifications, and a direct Role Alignment comparison. The Experience section uses an interactive accordion to prevent information overload. The core of the design is the 'Alignment' section, which uses a two-column layout to explicitly map Marlon's skills from the revised resume to the Oddball job requirements. This structure was chosen to guide the hiring manager directly to the most relevant information and demonstrate a perfect fit, moving beyond a static resume format. -->
+    <!-- Visualization & Content Choices: Summary -> Inform -> Clean Text Block -> Clear initial pitch. Experience -> Organize -> JS Accordion -> Manages content density. Skills -> Inform -> Horizontal Bar Chart (Chart.js) -> Visually represents proficiency in years for key required competencies for quick, clear assessment. Certifications -> Inform -> Grid Layout with explanatory text -> Clearly presents credentials and their value. Role Alignment -> Compare -> Two-Column HTML/Tailwind Grid -> Provides a direct, scannable comparison of job needs vs. candidate skills. The bar chart was chosen for its clarity in representing time-based proficiency. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
@@ -48,6 +48,7 @@
                 <a href="#summary" class="nav-link font-medium">Summary</a>
                 <a href="#experience" class="nav-link font-medium">Experience</a>
                 <a href="#skills" class="nav-link font-medium">Skills</a>
+                <a href="#certifications" class="nav-link font-medium">Certifications</a>
                 <a href="#alignment" class="nav-link font-medium">Role Alignment</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-slate-600 hover:bg-slate-100">
@@ -60,6 +61,7 @@
             <a href="#summary" class="block py-2 nav-link mobile-nav-link">Summary</a>
             <a href="#experience" class="block py-2 nav-link mobile-nav-link">Experience</a>
             <a href="#skills" class="block py-2 nav-link mobile-nav-link">Skills</a>
+            <a href="#certifications" class="block py-2 nav-link mobile-nav-link">Certifications</a>
             <a href="#alignment" class="block py-2 nav-link mobile-nav-link">Role Alignment</a>
         </div>
     </header>
@@ -140,6 +142,53 @@
             </div>
         </section>
         
+        <section id="certifications" class="py-16 md:py-24">
+            <h2 class="text-3xl font-bold text-slate-800 mb-12 text-center">Certifications & Formal Training</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm flex flex-col">
+                    <div class="text-center">
+                        <h3 class="font-bold text-teal-700 text-lg">ITIL v4 Foundation</h3>
+                        <p class="text-slate-500 mt-1">PeopleCert</p>
+                    </div>
+                    <p class="text-slate-600 text-sm mt-4 flex-grow">This proves I apply a best-practice framework to my work, turning my experience resolving 30+ monthly incidents into structured, repeatable solutions.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm flex flex-col">
+                    <div class="text-center">
+                        <h3 class="font-bold text-teal-700 text-lg">Azure Fundamentals</h3>
+                        <p class="text-slate-500 mt-1">Microsoft</p>
+                    </div>
+                    <p class="text-slate-600 text-sm mt-4 flex-grow">This directly validates the "understanding of cloud-based infrastructure" requirement, showing I have the foundational knowledge to troubleshoot modern digital services effectively.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm flex flex-col">
+                    <div class="text-center">
+                        <h3 class="font-bold text-teal-700 text-lg">Project Management Professional</h3>
+                        <p class="text-slate-500 mt-1">PMI</p>
+                    </div>
+                    <p class="text-slate-600 text-sm mt-4 flex-grow">My experience leading a Windows 10 deployment for 8,000 users is solidified by this cert, proving I can manage complex, coordinated efforts—a key skill in a tiered support environment.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm flex flex-col">
+                    <div class="text-center">
+                        <h3 class="font-bold text-teal-700 text-lg">Certified Scrum Product Owner</h3>
+                        <p class="text-slate-500 mt-1">Scrum Alliance</p>
+                    </div>
+                    <p class="text-slate-600 text-sm mt-4 flex-grow">This goes beyond just working "in an Agile environment"; it shows I understand product development, enabling smoother collaboration with engineering teams when escalating issues.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm flex flex-col">
+                    <div class="text-center">
+                        <h3 class="font-bold text-teal-700 text-lg">Google AI Essentials</h3>
+                        <p class="text-slate-500 mt-1">Google</p>
+                    </div>
+                    <p class="text-slate-600 text-sm mt-4 flex-grow">Demonstrates a forward-thinking mindset and the technical curiosity to leverage modern tools, like the self-service solutions I helped create, to improve support efficiency.</p>
+                </div>
+
+            </div>
+        </section>
+
         <section id="alignment" class="py-16 md:py-24">
             <h2 class="text-3xl font-bold text-slate-800 mb-4 text-center">How My Experience Aligns with Oddball's Needs</h2>
             <p class="max-w-3xl mx-auto text-center text-slate-600 mb-16">
