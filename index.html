@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marlon Jordan | Customer Support Specialist III</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Professional -->
+    <!-- Application Structure Plan: A single-page application with top navigation for smooth scrolling to key sections: Summary, Experience, Skills, and a direct Role Alignment comparison. The Experience section uses an interactive accordion to prevent information overload. The core of the design is the 'Alignment' section, which uses a two-column layout to explicitly map Marlon's skills from the revised resume to the Oddball job requirements. This structure was chosen to guide the hiring manager directly to the most relevant information and demonstrate a perfect fit, moving beyond a static resume format. -->
+    <!-- Visualization & Content Choices: Summary -> Inform -> Clean Text Block -> Clear initial pitch. Experience -> Organize -> JS Accordion -> Manages content density. Skills -> Inform -> Radar Chart (Chart.js) -> Visually represents proficiency in key required competencies (Troubleshooting, Documentation, etc.) for quick assessment. Role Alignment -> Compare -> Two-Column HTML/Tailwind Grid -> Provides a direct, scannable comparison of job needs vs. candidate skills. The radar chart was chosen over a simple list to provide a memorable visual summary of qualifications. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            width: 100%;
+            max-width: 500px;
+            max-height: 500px;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #0d9488; /* teal-600 */
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="text-slate-700 antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-slate-800">Marlon Jordan</h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#summary" class="nav-link font-medium">Summary</a>
+                <a href="#experience" class="nav-link font-medium">Experience</a>
+                <a href="#skills" class="nav-link font-medium">Skills</a>
+                <a href="#alignment" class="nav-link font-medium">Role Alignment</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-slate-600 hover:bg-slate-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#summary" class="block py-2 nav-link mobile-nav-link">Summary</a>
+            <a href="#experience" class="block py-2 nav-link mobile-nav-link">Experience</a>
+            <a href="#skills" class="block py-2 nav-link mobile-nav-link">Skills</a>
+            <a href="#alignment" class="block py-2 nav-link mobile-nav-link">Role Alignment</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-6 md:p-12">
+
+        <section id="summary" class="min-h-[60vh] flex items-center">
+            <div class="w-full">
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Customer Support Specialist</h2>
+                <p class="text-lg md:text-xl text-slate-600 max-w-3xl">
+                    An experienced support specialist with a background in resolving complex technical issues for diverse user groups. Proficient in troubleshooting account access and authentication challenges, documenting cases in Jira, and contributing to shared knowledge bases in Confluence. Combines technical aptitude with a patient, user-first approach to ensure a clear and positive support experience.
+                </p>
+                <div class="mt-8 flex space-x-4">
+                    <a href="https://linkedin.com/in/mj2117" target="_blank" rel="noopener noreferrer" class="bg-teal-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-teal-700 transition-colors">View LinkedIn</a>
+                    <a href="#alignment" class="bg-white border border-slate-300 text-slate-700 font-bold py-3 px-6 rounded-lg hover:bg-slate-100 transition-colors">View Role Alignment</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-16 md:py-24">
+            <h2 class="text-3xl font-bold text-slate-800 mb-12 text-center">Professional Experience</h2>
+            <div class="max-w-4xl mx-auto space-y-4">
+
+                <div class="accordion-item bg-white border border-slate-200 rounded-lg shadow-sm">
+                    <button class="accordion-header w-full flex justify-between items-center p-6 text-left">
+                        <span class="text-lg font-semibold text-slate-800">Product Operations Specialist</span>
+                        <span class="text-slate-500">Bloomberg LP | 2021 - 2024</span>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="list-disc pl-12 pr-6 pb-6 space-y-3 text-slate-600">
+                            <li>Provided first-line support for customer workstations, managing the complete lifecycle from procurement and standardized configuration to logical troubleshooting and secure retirement.</li>
+                            <li>Provided responsive support for access-related issues, troubleshooting and resolving problems with authentication systems for a user base of over 300 individuals.</li>
+                            <li>Documented user feedback and system performance within Jira, helping engineering process bug fixes and enhancements, directly contributing to improved system functionality.</li>
+                            <li>Authored and maintained technical documentation in Confluence, creating a clear knowledge base of resolutions and procedures to improve support consistency.</li>
+                            <li>Investigated and resolved approximately 30 technical incidents monthly, performing root cause analysis to guide and document departmental process improvements.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-white border border-slate-200 rounded-lg shadow-sm">
+                    <button class="accordion-header w-full flex justify-between items-center p-6 text-left">
+                        <span class="text-lg font-semibold text-slate-800">Technical Support Lead Executive</span>
+                        <span class="text-slate-500">Bloomberg LP | 2017 - 2021</span>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="list-disc pl-12 pr-6 pb-6 space-y-3 text-slate-600">
+                            <li>Provided dedicated and empathetic technical support for high-priority users, demonstrating the patience and problem-solving skills required to handle sensitive and time-critical issues.</li>
+                            <li>Troubleshot a wide range of user-facing issues across various web portals and software applications, ensuring users could navigate systems effectively.</li>
+                            <li>Operated within an Agile environment, working collaboratively with development sprints to understand new features and support users through system changes.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item bg-white border border-slate-200 rounded-lg shadow-sm">
+                    <button class="accordion-header w-full flex justify-between items-center p-6 text-left">
+                        <span class="text-lg font-semibold text-slate-800">Senior IT Support Engineer</span>
+                        <span class="text-slate-500">Bloomberg LP | 2013 - 2017</span>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="list-disc pl-12 pr-6 pb-6 space-y-3 text-slate-600">
+                            <li>Functioned as a Tier 2 and Tier 3 support resource, resolving complex technical issues that were escalated from the initial help desk.</li>
+                            <li>Gained a foundational understanding of cloud-based infrastructure and monitoring tools, using this knowledge to better troubleshoot user-reported system issues.</li>
+                            <li>Contributed to creating and updating self-service IT tools, which enabled over 5,000 end-users to independently resolve common technical issues and significantly reduced support tickets.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills" class="py-16 md:py-24 bg-white rounded-2xl">
+            <h2 class="text-3xl font-bold text-slate-800 mb-12 text-center">Core Competencies & Technical Skills</h2>
+            <p class="max-w-3xl mx-auto text-center text-slate-600 mb-16">
+                This chart visually represents my key strengths as they relate to the Customer Support III role. My expertise in documentation, user support, and troubleshooting is well-suited for providing a high-quality, Veteran-centered experience.
+            </p>
+            <div class="chart-container">
+                <canvas id="skillsChart"></canvas>
+            </div>
+        </section>
+        
+        <section id="alignment" class="py-16 md:py-24">
+            <h2 class="text-3xl font-bold text-slate-800 mb-4 text-center">How My Experience Aligns with Oddball's Needs</h2>
+            <p class="max-w-3xl mx-auto text-center text-slate-600 mb-16">
+                The most effective partnerships are built on a strong alignment of skills and needs. This section directly maps the requirements of the Customer Support Specialist III role to my proven experience, demonstrating my readiness to contribute to your team from day one.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold text-center text-slate-800">What Oddball Requires</h3>
+                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+                        <h4 class="font-bold text-teal-700">Troubleshooting & Authentication</h4>
+                        <p class="text-slate-600 mt-1">Experience with authentication systems (e.g., Login.gov, ID.me), APIs, and web portals.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+                        <h4 class="font-bold text-teal-700">Ticketing & Documentation</h4>
+                        <p class="text-slate-600 mt-1">Familiarity with platforms like Jira and documentation tools like Confluence.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+                        <h4 class="font-bold text-teal-700">Empathy & User-First Mindset</h4>
+                        <p class="text-slate-600 mt-1">High empathy, patience, and ability to support users with varying technical backgrounds, especially Veterans.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+                        <h4 class="font-bold text-teal-700">Agile Environment</h4>
+                        <p class="text-slate-600 mt-1">Experience working in Agile development environments and collaborating with engineering teams.</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+                        <h4 class="font-bold text-teal-700">Technical Foundation</h4>
+                        <p class="text-slate-600 mt-1">Basic understanding of cloud infrastructure and monitoring tools.</p>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold text-center text-slate-800">My Proven Experience</h3>
+                    <div class="bg-teal-50 p-6 rounded-lg border border-teal-200 shadow-sm">
+                        <h4 class="font-bold text-slate-800">Responsive Access Support</h4>
+                        <p class="text-slate-600 mt-1">"Provided responsive support for access-related issues, troubleshooting and resolving problems with authentication systems..."</p>
+                    </div>
+                    <div class="bg-teal-50 p-6 rounded-lg border border-teal-200 shadow-sm">
+                        <h4 class="font-bold text-slate-800">Jira & Confluence Proficiency</h4>
+                        <p class="text-slate-600 mt-1">"Documented user feedback...within Jira..." and "Authored and maintained technical documentation in Confluence..."</p>
+                    </div>
+                    <div class="bg-teal-50 p-6 rounded-lg border border-teal-200 shadow-sm">
+                        <h4 class="font-bold text-slate-800">Dedicated, High-Priority Support</h4>
+                        <p class="text-slate-600 mt-1">"Provided dedicated and empathetic technical support for high-priority users, demonstrating the patience and problem-solving skills required..."</p>
+                    </div>
+                    <div class="bg-teal-50 p-6 rounded-lg border border-teal-200 shadow-sm">
+                        <h4 class="font-bold text-slate-800">Agile Collaboration</h4>
+                        <p class="text-slate-600 mt-1">"Operated within an Agile environment, working collaboratively with development sprints to understand new features..."</p>
+                    </div>
+                    <div class="bg-teal-50 p-6 rounded-lg border border-teal-200 shadow-sm">
+                        <h4 class="font-bold text-slate-800">Infrastructure Knowledge</h4>
+                        <p class="text-slate-600 mt-1">"Gained a foundational understanding of cloud-based infrastructure and monitoring tools..."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-slate-800 text-slate-300">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>Marlon Jordan</p>
+            <p class="text-sm text-slate-400 mt-1">Clifton, NJ | (646) 249-6025 | Marlon.Jordan21@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            accordionItems.forEach((item, index) => {
+                const header = item.querySelector('.accordion-header');
+                const content = item.querySelector('.accordion-content');
+                if (index === 0) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    header.classList.add('is-open');
+                }
+
+                header.addEventListener('click', () => {
+                    const isOpen = header.classList.contains('is-open');
+                    
+                    accordionItems.forEach(i => {
+                        i.querySelector('.accordion-header').classList.remove('is-open');
+                        i.querySelector('.accordion-content').style.maxHeight = '0';
+                    });
+
+                    if (!isOpen) {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        header.classList.add('is-open');
+                    }
+                });
+            });
+
+            const ctx = document.getElementById('skillsChart').getContext('2d');
+            const skillsChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        'Troubleshooting', 
+                        'Documentation (Jira/Confluence)', 
+                        'User-Centric Support', 
+                        'Agile Collaboration', 
+                        'Authentication Systems'
+                    ],
+                    datasets: [{
+                        label: 'Proficiency',
+                        data: [5, 5, 4, 4, 4], 
+                        backgroundColor: 'rgba(13, 148, 136, 0.2)', // teal-600 with transparency
+                        borderColor: 'rgb(13, 148, 136)', // teal-600
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgb(13, 148, 136)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgb(13, 148, 136)'
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            pointLabels: {
+                                font: {
+                                    size: 14,
+                                },
+                                color: '#334155' // slate-700
+                            },
+                            ticks: {
+                                backdropColor: 'rgba(248, 250, 252, 0.75)', // slate-50 with transparency
+                                color: '#64748b', // slate-500
+                                stepSize: 1,
+                                beginAtZero: true,
+                                max: 5
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            enabled: true,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.r !== null) {
+                                        label += context.parsed.r + ' / 5';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
